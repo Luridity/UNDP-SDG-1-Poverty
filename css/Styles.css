@@ -1,0 +1,597 @@
+body {
+    display:flex; /*Flex display formatting*/
+    justify-content: flex-start;
+    flex-direction: column;
+    background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url("../images/background.webp"); /*Dimmed background image*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    padding-bottom:4rem;
+    margin: 0;
+}
+
+
+.bebas-neue-regular { /*I genuinely dont understand why i put this here I could've just did font-family: for all my other divs */
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.topnav { /*Navigation bar*/
+    position: relative;
+    display:flex;
+    border-bottom-left-radius: 5px; border-bottom-right-radius:5px;
+    overflow: hidden;
+    justify-content: space-between;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.topnav a:hover {
+    color: rgb(62, 106, 238);
+}
+
+.home-link { /* Home button on the left everything else on the right (maybe dark mode in the middle) */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.home-link .label {
+    display: flex;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.other-links {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.carousel { /* Carousel of images, thank you CODING2GO */
+    background-color: rgb(0, 0, 0, 0.5);
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 2em 2em;
+    width: 100%;
+    overflow-x: auto;
+    margin: 3em auto;
+    display: flex;
+    gap: 1em;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.card { /* Carousel image cards */
+    scroll-snap-align: start;
+    flex: 0 0 clamp(13em, 24vw, 22em);
+    width: 20em;
+    height: 15em;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 0.5em;
+    text-align: center;
+    color: white;
+    align-content: center;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        border-radius: 0.5em;
+    }
+}
+
+.main-content { /* Formatting for my home page content */
+    font-family: "Kumbh Sans", sans-serif; /*See now I really don't know why i made that div earlier */
+    font-optical-sizing: auto;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+
+.home-info { /*Even more formatting specifically for the home page */
+    font-style: inherit;
+    margin-top: 20px;
+    h3 {
+        font-style: italic;
+    }
+    p {
+        margin-top: 10px;
+        font-style: italic;
+    }
+    margin-left: 1rem;
+    overflow: auto;
+    color: white;
+}
+
+.user-question { /* Formatting for my button to go to the information page */
+    font-style: italic;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.read-more { /* Button itself here */
+    display: inline-flex;
+    align-self: center;
+    margin: 0 0 0rem 1rem;
+    padding: 20px 30px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: rgb(33, 64, 236);
+    color: white;
+}
+
+
+footer{ /*Footer, nothing more to say here.*/
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100%;
+    height: 4rem;
+    min-height: 4rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    h3 {
+        margin: 0;
+        text-align: center;
+        font-style: italic;
+        font-size: clamp(0.55rem, 1.8vw, 0.8rem);
+        line-height: 1.3;
+    }
+}
+
+:root { /* The :root function targets the HIGHEST paretnt element inside of the html code*/
+    --text-color: black;
+    --button-bg: white;
+    --button-text: black;
+}
+
+
+[data-theme="dark"] { /* Dark mode themeing, there's probably a way to make this less lines of code.. */
+
+    .home-icon-light {
+        display: none;
+    }
+    footer {
+        background-color: rgb(26, 37, 55);
+        color: white;
+        border-top: 3px solid white;
+    }
+    .theme-toggle {
+        background-color: rgb(26, 37, 55);
+        border: 2px solid white;
+        color:white;
+    }
+    footer a {
+        color: white;
+    }
+
+    footer a:hover {
+        color: rgb(62, 106, 238);
+    }
+    .topnav {
+        background-color: rgb(26, 37, 55);
+        color: white;
+        border-bottom: 3px solid white;
+    }
+    .topnav a {
+        color: white;
+    }
+    .topnav a:hover {
+        color: rgb(62, 106, 238);
+    }
+    .help-card-rectangle, .help-cards {
+        background-color: rgb(26, 37, 55);
+        border: 2px solid white;
+        color: white;
+    }
+}
+
+[data-theme="light"] { /* Light mode themeing, remember this for future sites */
+    
+    .home-icon-dark {
+        display: none;
+    }
+    .theme-toggle {
+        background-color: white;
+        border: 2px solid black;
+        color: black;
+    }
+    footer {
+        background-color: white;
+        color: black;
+        border-top: 3px solid rgb(62, 106, 238);
+    }
+    footer a {
+        color: black;
+    }
+    footer a:hover {
+        color: rgb(62, 106, 238);
+    }
+    .topnav {
+        background-color: white;
+        color: black;
+        border-bottom: 3px solid rgb(62, 106, 238);
+    }
+    .topnav a {
+        color: black;
+    }
+    .topnav a:hover {
+        color: rgb(62, 106, 238);
+    }
+    .help-card-rectangle, .help-cards {
+        background-color: white;
+        border: 2px solid rgb(62, 106, 238);
+        color: black;
+    }
+}
+
+.theme-toggle { /* Theme toggle button, I'm too lazy to make it actually responsive with the rest of the page lmao */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.split-content { /*Content splitting for every single other page */
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    min-height: 0;     
+    width: 100%;      
+        h1, h2 {
+        font-style: italic;
+        margin: 0.5rem 0;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: disc;
+        padding: 0 0 0 1.25rem;
+        margin: 0 0 1rem;
+        gap: 1.5em;  
+    }
+}
+
+.content1, /* Formatting ofr the different split ocontents */
+.content2 {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: "Kumbh Sans", sans-serif; 
+    padding: 1rem 1.5rem;
+    color: white;
+    overflow-y: auto;
+}
+.content1 a {
+    margin-top: -1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.content1 a:hover {
+    color: rgb(62, 106, 238);
+}
+
+.content2 a {
+    margin-top: -1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.content2 a:hover {
+    color: rgb(62, 106, 238);
+}
+
+.content1 {
+    background-color: rgba(30, 51, 85, 0.7);
+}
+
+.content2 {
+    background-color: rgba(30, 51, 85, 0.7);
+    border-left: 1px solid white;
+}
+
+.content1:has(> .hcard-container) { /* If content 1 contains the .hcard-container div, then stretch the grid to fill the entire page (Remember this.) */
+    flex: 1;
+    align-items: stretch;
+    padding: 2rem 3rem;
+}
+
+.hcard-container { /* Container for cards that link to places where you can donate to people in need */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, minmax(80px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+    a {
+        color: black;
+    }
+}
+
+.help-cards, /* Thus, the name "help-cards */
+.help-card-rectangle {
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin: 0;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    transition: 400ms;
+    position: relative;
+    padding: 1rem;
+}
+
+.help-card-rectangle {
+    justify-content: flex-start;
+    img {
+        height: 200px;
+        width: 200px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+}
+
+.help-card-rectangle .card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 15px;
+    }
+}
+
+.help-cards { /*Grid formatting for cards */
+    grid-row: span 2;
+    flex-direction: column;
+    img {
+        align-self: center;
+        height: 400px;
+        width: 700px;
+        border-radius: 10px;
+    }
+    h1{
+        font-size: 1.5rem;
+        margin-left: 24px;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-top: -25px;
+        margin-left: 24px;
+    }
+    p {
+        margin-top: -20px;
+        margin-left: 24px;
+    }   
+}
+
+.hcard-container > :first-child {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.hcard-container > :hover { /*Nice scaling effect for when I specifically hover over a card */
+    transform: scale(1.1, 1.1);
+    z-index: 2;
+}
+
+.hcard-container:has(> :hover) > :not(:hover) {  /*This SPECIFICALLY makes sure that ONLY when you hover over a card and not the empty space that the other cards scale down and blur */
+    filter: blur(2px);
+    transform: scale(0.9, 0.9);
+}
+
+@media (max-width: 768px) {
+    .hcard-container {
+    grid-template-columns: 1fr;
+    }
+    .hcard-container > :first-child {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .help-cards {
+        grid-row: span 2;
+    }
+    .split-content {
+    flex-direction: column;
+    }
+    .content1,
+    .content2 {
+        width: 100%;
+        min-height: auto;
+    }
+    .content2 {
+        border-left: none;
+        border-top: 1px solid white;
+    }
+    body { 
+        padding-bottom: 0; 
+    }
+    .topnav { 
+        height: auto; 
+        min-height: 50px; 
+        padding: 0 0.25rem; 
+    }
+    .topnav a { 
+        padding: 14px 10px; 
+        font-size: 14px; 
+    }
+    .home-link .label { 
+        display: none; 
+    }
+    .home-icon { 
+        max-height: 32px; 
+        width: auto; 
+    }
+    .theme-toggle { 
+        position: static; 
+        transform: none; 
+        align-self: center; 
+        flex-shrink: 0; 
+    }
+    .theme-toggle:hover { 
+        transform: scale(1.1); 
+    }
+    footer {
+        position: static;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 0.75rem 1rem;
+        margin-top: auto;
+    }
+    footer h3 { 
+        font-size: 0.7rem; 
+        overflow-wrap: anywhere; 
+        padding: 0.15rem 0; 
+    }
+    main { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+    }
+    .main-content { 
+        flex: 1; 
+    }
+    .home-info { 
+        margin: 1rem; 
+    }
+    .home-info h1 { 
+        font-size: 1.6rem; 
+    }
+    .carousel {
+        padding: 1rem;
+        margin: 1.5em 0;
+    }
+    .card { 
+        flex: 0 0 75vw; 
+        width: auto; 
+        height: 12em; 
+    }
+    .user-question { 
+        text-align: center; 
+        padding: 0 1rem; 
+    }
+    .read-more { 
+        margin: 1rem auto 2rem; 
+    }
+
+    .split-content { 
+        flex-direction: column; 
+    }
+    .content1, .content2 {
+        flex: none;
+        width: 100%;
+        padding: 1rem;
+        overflow-y: visible;
+    }
+    .content2 { 
+        border-left: none; 
+        border-top: 1px solid white; 
+    }
+    .split-content h1 { 
+        font-size: 1.5rem; 
+    }
+
+    .content1:has(> .hcard-container) { padding: 1rem; }
+    .hcard-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 1rem;
+    }
+    .hcard-container > :first-child { grid-column: 1; grid-row: auto; }
+
+    .help-cards, .help-card-rectangle {
+        grid-row: auto;
+        flex-direction: column;
+        height: auto;
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+    .help-cards img {
+        width: 100%;
+        height: auto;
+        max-height: 220px;
+        object-fit: cover;
+    }
+    .help-card-rectangle img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        margin-top: 0;
+    }
+    .help-cards h1, .help-cards h2, .help-cards p { 
+        margin: 0.4rem 0 0; 
+    }
+    .help-card-rectangle .card-text h1 { 
+        margin-top: 0; 
+        font-size: 1.3rem; 
+    }
+}
+@media (hover: none) {
+    .hcard-container > :hover,
+    .hcard-container:has(> :hover) > :not(:hover) {
+        transform: none;
+        filter: none;
+    }
+} /*IM FINALLY FREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
